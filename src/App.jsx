@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ExtrasPage from './pages/ExtrasPage';
+import PdfPage from './pages/PdfPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,17 +37,46 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="min-h-screen bg-theme">
-          <Navbar />
-          <main className="pt-16">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/extras" element={<ExtrasPage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-          <Footer />
+          <Routes>
+            <Route path="/portfolio/pdf" element={<PdfPage />} />
+            <Route path="/" element={
+              <>
+                <Navbar />
+                <main className="pt-16">
+                  <HomePage />
+                </main>
+                <Footer />
+              </>
+            } />
+            <Route path="/about" element={
+              <>
+                <Navbar />
+                <main className="pt-16">
+                  <AboutPage />
+                </main>
+                <Footer />
+              </>
+            } />
+            <Route path="/projects" element={
+              <>
+                <Navbar />
+                <main className="pt-16">
+                  <ProjectsPage />
+                </main>
+                <Footer />
+              </>
+            } />
+            <Route path="/extras" element={
+              <>
+                <Navbar />
+                <main className="pt-16">
+                  <ExtrasPage />
+                </main>
+                <Footer />
+              </>
+            } />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </div>
       </Router>
     </ThemeProvider>
