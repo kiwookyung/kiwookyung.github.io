@@ -10,7 +10,7 @@ const FeaturedProjectsSection = ({ projects, onProjectClick }) => {
   // 대표 프로젝트 선정 기준: 기술적 복잡도, 팀 규모, 성과 등을 고려
   const featuredProjects = projects ? projects.filter(project => {
     // 주요 프로젝트만 선별 (팀 프로젝트 중 기술적으로 복잡한 것들)
-    return project.id === 2 || project.id === 3; // FloodGuard, OrakGarak
+    return project.id === 3 || project.id === 5; // FloodGuard, OrakGarak
   }) : [];
 
   return (

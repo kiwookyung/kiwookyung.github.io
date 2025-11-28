@@ -1,9 +1,32 @@
-import { X, Github, Calendar, Users, Award, AlertCircle, Play, Tag } from 'lucide-react';
+import { useEffect } from 'react';
+import { X, Github, Calendar, Users, Award, AlertCircle, Play, Tag, AlertTriangle, CheckCircle2, ArrowRight, Lightbulb } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   const { getCurrentThemeColors } = useTheme();
   const themeColors = getCurrentThemeColors();
+
+  // 모달이 열려있을 때 배경 스크롤 방지
+  useEffect(() => {
+    if (isOpen) {
+      // 현재 스크롤 위치 저장
+      const scrollY = window.scrollY;
+      // body에 스크롤 방지 스타일 적용
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+
+      // 모달이 닫힐 때 원래 상태로 복원
+      return () => {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
 
   if (!isOpen || !project) return null;
 
@@ -38,7 +61,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           <div className="px-6 py-6">
             {/* Project Image */}
             <div className="mb-6">
-              <div className="h-64 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl overflow-hidden">
+              <div className="h-72 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl overflow-hidden">
                 {project.image ? (
                   <img
                     src={project.image}
@@ -59,9 +82,17 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">프로젝트 설명</h4>
-                <p className="text-gray-600 leading-relaxed">
-                  {project.longDescription || project.description}
-                </p>
+                <div className="text-gray-600 leading-relaxed space-y-3">
+                  {(project.longDescription || project.description)
+                    .split(/[.]\s+/)
+                    .filter(sentence => sentence.trim().length > 0)
+                    .map((sentence, index, array) => (
+                      <p key={index} className="mb-0">
+                        {sentence.trim()}
+                        {index < array.length - 1 ? '.' : ''}
+                      </p>
+                    ))}
+                </div>
               </div>
 
               <div>
@@ -160,14 +191,93 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             {/* Challenges */}
             {project.challenges && project.challenges.length > 0 && (
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">기술적 도전</h4>
-                <div className="space-y-2">
-                  {project.challenges.map((challenge, index) => (
-                    <div key={index} className="flex items-start text-gray-600">
-                      <AlertCircle size={16} className="mr-2 mt-0.5 text-blue-500 flex-shrink-0" />
-                      <span>{challenge}</span>
-                    </div>
-                  ))}
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">트러블슈팅</h4>
+                <div className="space-y-4">
+                  {project.challenges.map((challenge, index) => {
+                    // 텍스트를 문제/해결로 파싱
+                    const parseTroubleshooting = (text) => {
+                      // "문제 설명: 문제 상황 발생했습니다. 해결 방법" 형식 파싱
+                      const colonIndex = text.indexOf(':');
+                      if (colonIndex === -1) {
+                        return { title: '', problem: text, solution: '' };
+                      }
+
+                      const title = text.substring(0, colonIndex).trim();
+                      const rest = text.substring(colonIndex + 1).trim();
+
+                      // "발생했습니다." 또는 "발생했습니다"를 기준으로 문제와 해결 분리
+                      const occurredPattern = /발생했습니다\.?/;
+                      const occurredMatch = rest.match(occurredPattern);
+
+                      if (occurredMatch) {
+                        const occurredIndex = rest.indexOf(occurredMatch[0]) + occurredMatch[0].length;
+                        const problem = rest.substring(0, occurredIndex).trim();
+                        let solution = rest.substring(occurredIndex).trim();
+
+                        // 해결 방법 앞의 공백이나 마침표 제거
+                        solution = solution.replace(/^[\s.]+/, '').trim();
+
+                        // 해결 방법에서 마지막 마침표 제거 (있는 경우)
+                        if (solution.endsWith('.')) {
+                          solution = solution.slice(0, -1).trim();
+                        }
+
+                        return { title, problem, solution };
+                      }
+
+                      // "발생했습니다" 패턴이 없으면 마지막 마침표를 기준으로 분리
+                      const lastDotIndex = rest.lastIndexOf('.');
+                      if (lastDotIndex > 0 && lastDotIndex < rest.length - 1) {
+                        const problem = rest.substring(0, lastDotIndex + 1).trim();
+                        let solution = rest.substring(lastDotIndex + 1).trim();
+                        if (solution.endsWith('.')) {
+                          solution = solution.slice(0, -1).trim();
+                        }
+                        return { title, problem, solution };
+                      }
+
+                      // 패턴이 없으면 전체를 문제로 처리
+                      return { title, problem: rest, solution: '' };
+                    };
+
+                    const parsed = parseTroubleshooting(challenge);
+
+                    return (
+                      <div key={index} className="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        {/* 제목 */}
+                        {parsed.title && (
+                          <div className="bg-gradient-to-r from-red-50 to-orange-50 px-4 py-2 border-b border-gray-200">
+                            <div className="flex items-center gap-2">
+                              <AlertTriangle size={18} className="text-red-500 flex-shrink-0" />
+                              <h5 className="font-semibold text-gray-900">{parsed.title}</h5>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="p-4 space-y-4">
+                          {/* 문제 섹션 */}
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <AlertCircle size={18} className="text-red-500" />
+                              <span className="text-base font-semibold text-red-700">문제</span>
+                            </div>
+                            <p className="text-gray-700 text-sm leading-relaxed pl-6">{parsed.problem}</p>
+                          </div>
+
+                          {/* 해결 방법이 있을 때만 표시 */}
+                          {parsed.solution && (
+                            <div>
+                              <div className="flex items-center gap-2 mb-2">
+                                <Lightbulb size={18} className="text-green-500" />
+                                <span className="text-base font-semibold text-green-700">해결</span>
+                              </div>
+                              <p className="text-gray-700 text-sm leading-relaxed pl-6">{parsed.solution}</p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
