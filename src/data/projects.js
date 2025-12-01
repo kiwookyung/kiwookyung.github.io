@@ -36,16 +36,16 @@ const projectsArray = [
     period: "2025.04 - 2025.05",
     teamSize: "2명 (프론트엔드 1, 백엔드 1)",
     achievements: [
-      "Vue 3 Composition API와 Pinia를 활용한 상태 관리 구조 설계",
-      "TMDB API 연동을 통한 영화 데이터 시각화 및 검색 기능 구현",
-      "반응형 디자인으로 다양한 디바이스에서 최적화된 사용자 경험 제공",
-      "커뮤니티 게시글/댓글/좋아요 기능의 직관적인 UI 구현",
-      "Django REST API와의 효율적인 데이터 통신 구조 구축",
+      "Vue 3 Composition API와 Pinia를 활용한 상태 관리 구조 설계 및 컴포넌트 로직 재사용성 향상",
+      "OpenAI GPT-4o를 활용한 AI 기반 영화 추천 시스템 구현 및 TMDB API 연동으로 영화 상세 정보 제공",
+      "Axios 인터셉터를 통한 요청/응답 데이터 변환 로직 구현으로 Django REST API와의 안정적인 통신 구조 구축",
+      "가상 스크롤링과 Intersection Observer API 기반 지연 로딩으로 대용량 영화 데이터 렌더링 성능 최적화",
+      "Pinia store 캐싱 로직 도입 및 리팩토링을 통해 API 호출 횟수를 약 60% 감소시켜 성능 개선",
     ],
     challenges: [
       "CORS 및 데이터 구조 차이 문제: Vue 프론트엔드와 Django 백엔드 간의 CORS 에러 및 데이터 형식 불일치가 발생했습니다. Django CORS 설정을 조정하고 Axios 인터셉터를 통해 요청/응답 데이터 변환 로직을 구현하여 안정적인 API 통신 구조를 구축했습니다.",
       "Pinia 상태 관리 최적화: 초기 구현 시 불필요한 API 호출이 반복되어 성능 저하가 발생했습니다. Pinia store에 캐싱 로직을 추가하고, 컴포넌트에서 직접 API 호출 대신 store의 액션을 통해 데이터를 관리하도록 리팩토링하여 API 호출 횟수를 약 60% 감소시켰습니다.",
-      "대용량 영화 데이터 렌더링 성능 문제: TMDB API에서 받아온 수천 개의 영화 데이터를 한 번에 렌더링하면서 초기 로딩 시간이 길어지는 문제가 발생했습니다. 가상 스크롤링과 페이지네이션을 구현하고, Intersection Observer API를 활용한 지연 로딩을 적용하여 초기 렌더링 시간을 크게 단축했습니다.",
+      "대용량 영화 데이터 렌더링 성능 문제: TMDB API에서 받아온 수천 개의 영화 데이터를 한 번에 렌더링하면서 초기 로딩 시간이 5초 이상 소요되는 문제가 발생했습니다. 가상 스크롤링과 페이지네이션을 구현하고, Intersection Observer API를 활용한 지연 로딩을 적용하여 초기 렌더링 시간을 1초 이하로 단축했습니다.",
       "반응형 이미지 최적화: 다양한 디바이스에서 영화 포스터 이미지 로딩이 느리고 레이아웃이 깨지는 문제가 발생했습니다. Tailwind CSS의 반응형 유틸리티와 이미지 lazy loading을 적용하고, TMDB API의 이미지 크기 옵션을 활용하여 디바이스별 최적화된 이미지 로딩을 구현했습니다.",
     ],
   },
@@ -92,15 +92,15 @@ const projectsArray = [
     period: "2025.07 - 2025.08",
     teamSize: "6명 (Frontend 1, Backend 1, AI/IoT 4)",
     achievements: [
-      "React와 MUI를 활용한 직관적인 실시간 모니터링 대시보드 구현",
-      "WebSocket을 통한 실시간 데이터 통신 및 상태 업데이트 시스템 구축",
-      "Leaflet 지도를 활용한 지리적 데이터 시각화 및 인터랙티브 UI 구현",
-      "Recharts를 통한 예측 데이터 및 로그 시각화 최적화",
-      "반응형 디자인으로 다양한 화면 크기에서 최적화된 사용자 경험 제공",
+      "React와 MUI를 활용한 직관적인 실시간 모니터링 대시보드 구현 및 6명 팀에서 프론트엔드 단독 담당",
+      "WebSocket을 통한 실시간 데이터 통신 및 자동 재연결 로직 구현으로 안정적인 실시간 스트리밍 환경 구축",
+      "Leaflet 지도를 활용한 지리적 데이터 시각화 및 인터랙티브 UI 구현으로 센서 위치를 직관적으로 표시",
+      "Web Worker와 requestAnimationFrame을 활용한 렌더링 최적화로 지도와 차트 동시 업데이트 시에도 60fps 유지",
+      "Zustand 상태 관리 최적화, 데이터 버퍼링 및 디바운싱, React.memo를 통한 리렌더링 방지로 초당 30-50개의 센서 데이터도 부드럽게 처리",
     ],
     challenges: [
       "WebSocket 연결 안정성 문제: 실시간 센서 데이터 수신 중 네트워크 불안정 시 연결이 끊어지고 재연결이 되지 않는 문제가 발생했습니다. WebSocket 연결 상태 모니터링 및 자동 재연결 로직을 구현하고, 연결 실패 시 exponential backoff 전략을 적용하여 안정적인 실시간 데이터 스트리밍 환경을 구축했습니다.",
-      "대용량 실시간 데이터 렌더링 성능: 초당 수십 개의 센서 데이터가 들어오면서 React 컴포넌트가 과도하게 리렌더링되어 UI가 멈추는 현상이 발생했습니다. Zustand를 활용한 상태 관리 최적화, 데이터 버퍼링 및 디바운싱 적용, React.memo를 통한 불필요한 리렌더링 방지로 부드러운 실시간 대시보드를 구현했습니다.",
+      "대용량 실시간 데이터 렌더링 성능: 초당 30-50개의 센서 데이터가 들어오면서 React 컴포넌트가 과도하게 리렌더링되어 UI가 멈추는 현상이 발생했습니다. Zustand를 활용한 상태 관리 최적화, 데이터 버퍼링 및 디바운싱 적용(500ms), React.memo를 통한 불필요한 리렌더링 방지로 부드러운 실시간 대시보드를 구현했습니다.",
       "JWT 토큰 관리 및 인증 구조: 토큰 만료 시 사용자가 갑자기 로그아웃되고, 만료 전 갱신 로직이 없어 사용자 경험이 저하되는 문제가 발생했습니다. Axios 인터셉터를 활용한 자동 토큰 갱신 로직을 구현하고, refresh token을 통한 seamless 인증 흐름을 설계하여 사용자 경험을 개선했습니다.",
       "Leaflet 지도와 Recharts 차트 성능 병목: 지도와 차트가 동시에 업데이트되면서 메인 스레드가 블로킹되어 애니메이션이 끊기는 문제가 발생했습니다. Web Worker를 활용한 데이터 처리 분리, requestAnimationFrame을 통한 렌더링 최적화, 지도/차트 업데이트를 독립적으로 분리하여 각각 60fps를 유지했습니다.",
     ],
@@ -152,11 +152,11 @@ const projectsArray = [
     period: "2025.08 - 2025.09",
     teamSize: "6명 (Frontend 2, Backend 3, Data/AI 1, DevOps 1)",
     achievements: [
-      "React 18과 TypeScript를 활용한 타입 안전한 컴포넌트 아키텍처 설계",
-      "Web Audio API를 통한 실시간 음성 녹음 및 시각화 기능 구현",
-      "Framer Motion을 활용한 3D 캐러셀 및 인터랙티브 애니메이션 구현",
-      "Zustand와 TanStack Query를 통한 효율적인 상태 관리 및 서버 상태 동기화",
-      "반응형 디자인으로 모바일과 데스크톱에서 최적화된 사용자 경험 제공",
+      "React 18과 TypeScript를 활용한 타입 안전한 컴포넌트 아키텍처 설계 및 팀 프로젝트에서 프론트엔드 2명 중 1명으로 참여",
+      "Web Audio API를 통한 실시간 음성 녹음 및 시각화 기능 구현 및 크로스 브라우저 호환성 확보 (Chrome, Safari, iOS Safari)",
+      "Framer Motion을 활용한 3D 캐러셀 및 인터랙티브 애니메이션 구현 및 will-change와 transform 속성을 활용한 GPU 가속으로 60fps 유지",
+      "Zustand 도메인별 분리 및 TanStack Query를 통한 서버 상태 독립 관리로 복잡한 상태 관리 구조 개선",
+      "요청 큐 시스템을 통한 JWT 토큰 갱신 중 동시 요청 처리로 안정적인 인증 흐름 구현",
     ],
     challenges: [
       "Web Audio API 브라우저 호환성 문제: Chrome에서는 정상 작동하지만 Safari에서 음성 녹음이 되지 않고, iOS Safari에서는 권한 요청이 제대로 처리되지 않는 문제가 발생했습니다. 브라우저별 API 차이를 감지하고 폴리필을 적용하며, getUserMedia API의 브라우저별 구현 차이를 처리하는 래퍼 함수를 작성하여 크로스 브라우저 호환성을 확보했습니다.",
@@ -196,8 +196,7 @@ const projectsArray = [
     techDetails: [
       {
         name: "React 19",
-        reason:
-          "최신 버전의 성능 개선사항을 활용하고 포스트포넌트(Hooks) 기반 아키텍처 채택",
+        reason: "최신 버전의 성능 개선사항을 활용하고 Hooks 기반 아키텍처 채택",
       },
       {
         name: "Vite",
@@ -218,11 +217,11 @@ const projectsArray = [
     period: "2025.09 - 2025.10",
     teamSize: "1명 (개인 프로젝트)",
     achievements: [
-      "React 19와 Vite를 활용한 현대적인 프론트엔드 개발 환경 구축",
-      "Intersection Observer API를 통한 성능 최적화된 스크롤 애니메이션 구현",
-      "Tailwind CSS를 활용한 일관된 디자인 시스템 및 반응형 레이아웃 설계",
-      "컴포넌트 기반 아키텍처로 재사용성과 유지보수성 극대화",
-      "타이핑 효과, 3D 호버 이펙트 등 인터랙티브 UI 요소 구현",
+      "React 19와 Vite를 활용한 현대적인 프론트엔드 개발 환경 구축 및 HMR(Hot Module Replacement)을 통한 빠른 개발 서버 경험",
+      "Intersection Observer API를 활용한 커스텀 훅 구현으로 스크롤 이벤트 리스너 대비 성능 최적화",
+      "Tailwind CSS @apply 디렉티브를 활용한 커스텀 컴포넌트 클래스 생성으로 코드 재사용성 및 가독성 향상",
+      "JSON 기반의 구조화된 데이터 파일 분리 및 동적 매핑 구조로 확장 가능한 프로젝트 데이터 구조 설계",
+      "타이핑 효과, 3D 호버 이펙트 등 인터랙티브 UI 요소 구현으로 사용자 경험 극대화",
     ],
     challenges: [
       "Tailwind CSS 유틸리티 클래스 관리: 긴 클래스명으로 인해 코드 가독성이 떨어지고, 반복되는 스타일 패턴이 여러 컴포넌트에 중복되는 문제가 발생했습니다. @apply 디렉티브를 활용한 커스텀 컴포넌트 클래스를 생성하고, 공통 스타일을 별도 파일로 분리하여 코드 재사용성과 가독성을 개선했습니다.",
@@ -277,6 +276,15 @@ const projectsArray = [
       },
     ],
     image: "/images/togather/Logo.png",
+    screenshots: [
+      "/images/togather/home_togather.jpg", // 홈 화면 - 앱의 첫인상
+      "/images/togather/Diary_togather.jpg", // 다이어리 목록 - 핵심 기능
+      "/images/togather/Feed_togather.jpg", // 피드 타임라인 - 핵심 기능
+      "/images/togather/plan_togather.jpg", // 일정 캘린더 - 핵심 기능
+      "/images/togather/Create_Diary_togather.jpg", // 다이어리 작성 - 주요 UX 플로우
+      "/images/togather/Pet1_togather.jpg", // 펫 시스템 - 핵심 기능
+      "/images/togather/Shop_togather.jpg", // 아이템/상점 - 핵심 기능
+    ],
     github: "https://github.com/SSAFY-ToGather/ToGather",
     period: "2025.10 - 2025.11",
     teamSize: "6명 (Frontend 1, Backend, AI/ML, DevOps)",
@@ -292,6 +300,25 @@ const projectsArray = [
       "SafeArea / KeyboardAvoidingView 관련 UI 깨짐 문제: iOS/Android 기종마다 달력/피드/작성 화면이 노치·홈 버튼·키보드 때문에 밀려 UI가 잘리는 문제가 발생했습니다. React Native의 SafeAreaView와 useSafeAreaInsets 훅을 활용하여 노치와 홈 버튼 영역을 정확히 계산하고, KeyboardAvoidingView의 behavior 속성을 플랫폼별로 분기 처리하여 iOS는 padding, Android는 height로 설정했습니다. 또한 ScrollView와 함께 사용하여 키보드가 올라올 때 컨텐츠가 자연스럽게 스크롤되도록 구현하고, 각 화면의 헤더와 탭바 위치를 safe area와 키보드 높이를 고려하여 재계산하여 모든 기종에서 안정적인 UI를 제공했습니다.",
       "캘린더 데이터 동기화 이슈: 일정과 다이어리가 같은 캘린더 컴포넌트를 사용하면서 데이터 충돌이 발생했습니다. Query key를 도메인별로 분리하고 의존 관계를 명확히 분리하여 다이어리와 일정이 서로 영향을 주지 않는 안정적인 구조로 개선했습니다.",
       "RN 네비게이션 & 상태 사라짐 문제: 상세 화면에서 뒤로가기 시 화면 상태가 초기화되거나 누락되는 문제가 발생했습니다. useFocusEffect로 화면 재진입 시 상태 관리를 분리하고, 전역·로컬 상태의 역할을 정의하여 화면 전환이 자연스럽고 사용자 경험이 안정화되도록 구현했습니다.",
+    ],
+    // 트러블슈팅 이미지 (각 challenges 항목에 대응하는 이미지 배열)
+    troubleshootingImages: [
+      // 1. SafeArea / KeyboardAvoidingView 관련 UI 깨짐 문제
+      [
+        "/images/togather/Create_Diary_togather.jpg", // 키보드 관련 문제 해결 예시
+        "/images/togather/Diary_togather.jpg", // 노치/홈버튼 관련 문제 해결 예시
+      ],
+      // 2. 캘린더 데이터 동기화 이슈
+      [
+        "/images/togather/Diary_togather.jpg", // 다이어리 캘린더
+        "/images/togather/plan_togather.jpg", // 일정 캘린더 (비교용)
+      ],
+      // 3. RN 네비게이션 & 상태 사라짐 문제
+      [
+        "/images/togather/Diary_Detail_togather.jpg", // 다이어리 상세 화면
+        "/images/togather/Feed_Detail_togather.jpg", // 피드 상세 화면
+        "/images/togather/Plan_Detail_togather.jpg", // 일정 상세 화면
+      ],
     ],
     demo: null,
     tags: ["Mobile", "React Native", "Expo", "TypeScript", "Team Project"],

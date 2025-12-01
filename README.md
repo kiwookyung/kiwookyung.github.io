@@ -14,17 +14,16 @@
 
 ---
 
-
 ## 💼 주요 프로젝트
 
 ### 1. [ToGather](https://github.com/SSAFY-ToGather/ToGather) - AI 기반 커플 공유 다이어리 & 일정 관리 앱
+
 
 **기간**: 2025.10 - 2025.11  
 **팀 규모**: 6명 (Frontend 1, Backend, AI/ML, DevOps)  
 **기술 스택**: React Native, Expo, TypeScript, Expo Router, Zustand, TanStack Query
 
 커플이 함께 사용하는 모바일 공유 다이어리 · 일정 관리 애플리케이션입니다. React Native + Expo 기반으로 개발되었으며, 날짜 기반의 기록, 커플 타임라인, 공유 일정, 펫/아이템 시스템 등 감성적 경험과 실사용 기능을 결합한 모바일 플랫폼입니다.
-
 
 [🔗 GitHub](https://github.com/SSAFY-ToGather/ToGather)
 
@@ -37,7 +36,6 @@
 **기술 스택**: React 19, Vite, React Router v7, Tailwind CSS
 
 React와 Tailwind CSS를 활용하여 제작한 개인 포트폴리오 웹사이트입니다. Intersection Observer API 기반 스크롤 애니메이션, 타이핑 효과, 3D 호버 이펙트 등 다양한 인터랙티브 요소를 구현하여 사용자 경험을 극대화했습니다.
-
 
 [🔗 GitHub](https://github.com/kiwookyung/Ki_Portfolio) • [🌐 Live Demo](https://kiwookyung.github.io/)
 
@@ -63,7 +61,6 @@ React와 Tailwind CSS를 활용하여 제작한 개인 포트폴리오 웹사이
 
 AIoT 기반 침수 예방 시스템의 웹 대시보드입니다. React와 MUI를 활용하여 실시간 모니터링 인터페이스를 구현했으며, WebSocket을 통한 실시간 데이터 통신과 Leaflet 지도를 활용한 시각화 기능을 제공합니다.
 
-
 [🔗 GitHub](https://github.com/kiwookyung/floodguard)
 
 ---
@@ -75,7 +72,6 @@ AIoT 기반 침수 예방 시스템의 웹 대시보드입니다. React와 MUI�
 **기술 스택**: Vue 3, Pinia, Axios, TMDB API, OpenAI GPT-4o, Tailwind CSS
 
 영화 추천과 커뮤니티 기능을 결합한 영화 웹 서비스입니다. Vue 3와 Pinia를 활용한 SPA 구조로 구현했으며, TMDB API와 Django REST API를 연동하여 영화 데이터를 효율적으로 처리했습니다.
-
 
 [🔗 GitHub](https://github.com/kiwookyung/SSAFY_first_PJT)
 

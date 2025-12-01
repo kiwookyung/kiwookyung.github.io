@@ -10,6 +10,15 @@ export const skills = {
       projects: ["floodguard", "orakgarak", "ki_portfolio"],
     },
     {
+      name: "React Native",
+      level: "intermediate",
+      icon: "FaReact",
+      iconColor: "text-blue-500",
+      description:
+        "Expo 기반 모바일 앱 개발, 네비게이션 구조 설계, 플랫폼별 UI 처리",
+      projects: ["togather"],
+    },
+    {
       name: "Vue 3",
       level: "advanced",
       icon: "FaVuejs",
@@ -24,7 +33,7 @@ export const skills = {
       icon: "SiTypescript",
       iconColor: "text-blue-600",
       description: "타입 안전한 컴포넌트 개발, ES6+ 문법 활용, 비동기 처리",
-      projects: ["floodguard", "orakgarak", "ki_portfolio"],
+      projects: ["floodguard", "orakgarak", "ki_portfolio", "togather"],
     },
     {
       name: "Tailwind CSS",
@@ -52,12 +61,28 @@ export const skills = {
       projects: ["reeloom", "floodguard", "orakgarak", "ki_portfolio"],
     },
     {
+      name: "Expo Router",
+      level: "intermediate",
+      icon: "FaRoute",
+      iconColor: "text-purple-500",
+      description: "파일 기반 라우팅, 탭 네비게이션 구조 설계, 딥링크 처리",
+      projects: ["togather"],
+    },
+    {
       name: "상태 관리 (Zustand / Pinia)",
       level: "intermediate",
       icon: "FaBrain",
       iconColor: "text-indigo-500",
       description: "전역 상태 관리, 서버 상태와 클라이언트 상태 분리",
-      projects: ["reeloom", "floodguard", "orakgarak"],
+      projects: ["reeloom", "floodguard", "orakgarak", "togather"],
+    },
+    {
+      name: "TanStack Query",
+      level: "intermediate",
+      icon: "FaDatabase",
+      iconColor: "text-red-500",
+      description: "서버 상태 관리, 자동 캐싱 및 리페치, API 호출 최적화",
+      projects: ["orakgarak", "togather"],
     },
     {
       name: "Framer Motion",
@@ -76,12 +101,28 @@ export const skills = {
       projects: ["floodguard"],
     },
     {
+      name: "Leaflet",
+      level: "intermediate",
+      icon: "FaMap",
+      iconColor: "text-green-600",
+      description: "지도 시각화, 인터랙티브 마커, 지리적 데이터 표시",
+      projects: ["floodguard"],
+    },
+    {
+      name: "Web Audio API",
+      level: "basic",
+      icon: "FaMicrophone",
+      iconColor: "text-purple-500",
+      description: "실시간 음성 녹음, 오디오 시각화, 크로스 브라우저 호환성 처리",
+      projects: ["orakgarak"],
+    },
+    {
       name: "API 연동",
       level: "advanced",
       icon: "FaPlug",
       iconColor: "text-green-500",
       description: "REST API 호출, WebSocket 실시간 통신, 에러 처리",
-      projects: ["reeloom", "floodguard", "orakgarak"],
+      projects: ["reeloom", "floodguard", "orakgarak", "togather"],
     },
   ],
 
@@ -92,7 +133,7 @@ export const skills = {
       icon: "FaPlug",
       iconColor: "text-blue-500",
       description: "REST API 호출, 데이터 페칭, 에러 핸들링 및 로딩 상태 관리",
-      projects: ["reeloom", "floodguard", "orakgarak"],
+      projects: ["reeloom", "floodguard", "orakgarak", "togather"],
     },
     {
       name: "WebSocket 통신",
@@ -118,7 +159,7 @@ export const skills = {
       iconColor: "text-blue-700",
       description:
         "API 응답 데이터 변환, 클라이언트 사이드 데이터 가공 및 캐싱",
-      projects: ["reeloom", "floodguard", "orakgarak"],
+      projects: ["reeloom", "floodguard", "orakgarak", "togather"],
     },
   ],
 
@@ -129,7 +170,7 @@ export const skills = {
       icon: "FaGithub",
       iconColor: "text-gray-800",
       description: "버전 관리, 브랜치 전략, 코드 리뷰, 협업 워크플로우",
-      projects: ["reeloom", "floodguard", "orakgarak", "ki_portfolio"],
+      projects: ["reeloom", "floodguard", "orakgarak", "ki_portfolio", "togather"],
     },
     {
       name: "Vite / Webpack",
@@ -172,7 +213,7 @@ export const skills = {
       icon: "FaRobot",
       iconColor: "text-blue-600",
       description: "AI 서비스 API 호출, 응답 데이터 처리, 에러 핸들링",
-      projects: ["floodguard", "orakgarak"],
+      projects: ["reeloom", "orakgarak", "togather"],
     },
     {
       name: "실시간 데이터 처리",
@@ -188,15 +229,15 @@ export const skills = {
       icon: "FaPlug",
       iconColor: "text-green-500",
       description: "다양한 외부 API 통합, 데이터 변환, 캐싱 전략",
-      projects: ["reeloom", "orakgarak"],
+      projects: ["reeloom", "orakgarak", "togather"],
     },
     {
       name: "크로스 플랫폼 개발",
       level: "intermediate",
-      icon: "FaMicrophone",
+      icon: "FaMobile",
       iconColor: "text-purple-500",
-      description: "반응형 웹, 다양한 디바이스 대응, 브라우저 호환성",
-      projects: ["reeloom", "floodguard", "orakgarak", "ki_portfolio"],
+      description: "반응형 웹, 모바일 앱, 다양한 디바이스 대응, 브라우저 호환성",
+      projects: ["reeloom", "floodguard", "orakgarak", "ki_portfolio", "togather"],
     },
   ],
 };

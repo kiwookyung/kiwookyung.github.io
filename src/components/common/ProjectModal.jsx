@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
-import { X, Github, Calendar, Users, Award, AlertCircle, Play, Tag, AlertTriangle, CheckCircle2, ArrowRight, Lightbulb } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { X, Github, Calendar, Users, Award, AlertCircle, Play, Tag, AlertTriangle, CheckCircle2, ArrowRight, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   const { getCurrentThemeColors } = useTheme();
   const themeColors = getCurrentThemeColors();
+  const [showAllScreenshots, setShowAllScreenshots] = useState(false);
 
   // 모달이 열려있을 때 배경 스크롤 방지
   useEffect(() => {
@@ -93,6 +94,43 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       </p>
                     ))}
                 </div>
+
+                {/* 프로젝트 스크린샷 갤러리 */}
+                {project.screenshots && project.screenshots.length > 0 && (
+                  <div className="mt-4">
+                    <div className="grid grid-cols-2 gap-2">
+                      {(showAllScreenshots ? project.screenshots : project.screenshots.slice(0, 4)).map((screenshot, index) => (
+                        <div key={index} className="relative rounded-lg overflow-hidden border border-gray-200 hover:shadow-md transition-shadow">
+                          <img
+                            src={screenshot}
+                            alt={`${project.title} 스크린샷 ${index + 1}`}
+                            className="w-full h-32 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                            onClick={() => window.open(screenshot, '_blank')}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    {project.screenshots.length > 6 && (
+                      <button
+                        onClick={() => setShowAllScreenshots(!showAllScreenshots)}
+                        className="w-full mt-3 py-2 text-sm text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        {showAllScreenshots ? (
+                          <>
+                            <ChevronUp size={16} />
+                            <span>간략히 보기</span>
+                          </>
+                        ) : (
+                          <>
+                            <ChevronDown size={16} />
+                            <span>전체 {project.screenshots.length}개 화면 보기</span>
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div>
@@ -272,6 +310,24 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                 <span className="text-base font-semibold text-green-700">해결</span>
                               </div>
                               <p className="text-gray-700 text-sm leading-relaxed pl-6">{parsed.solution}</p>
+                            </div>
+                          )}
+
+                          {/* 트러블슈팅 이미지 (있는 경우) */}
+                          {project.troubleshootingImages && project.troubleshootingImages[index] && project.troubleshootingImages[index].length > 0 && (
+                            <div className="mt-3 pl-6">
+                              <div className="grid grid-cols-2 gap-2">
+                                {project.troubleshootingImages[index].map((img, imgIndex) => (
+                                  <div key={imgIndex} className="relative rounded-lg overflow-hidden border border-gray-200 hover:shadow-md transition-shadow">
+                                    <img
+                                      src={img}
+                                      alt={`${parsed.title} 이미지 ${imgIndex + 1}`}
+                                      className="w-full h-32 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                                      onClick={() => window.open(img, '_blank')}
+                                    />
+                                  </div>
+                                ))}
+                              </div>
                             </div>
                           )}
                         </div>

@@ -19,14 +19,14 @@ export const career = [
   {
     id: 2,
     type: "education",
-    org: "SSAFY (삼성 청년 SW 아카데미) 13기",
-    title: "SW 개발자 과정 (진행 중)",
+    org: "SSAFY (삼성 청년 SW AI 아카데미) 13기",
+    title: "SW 개발자 과정",
     start: "2025-01",
     end: null,
-    period: "2025.01 - 현재",
+    period: "2025.01 - 2025.12",
     description: "SW 교육과정 및 프로젝트를 통해 실무 경험을 쌓고 있습니다.",
     details: [
-      "1학기 수료, 2학기 진행 중",
+      "개발 과정에서의 프론트,백엔드,AI 등 다양한 분야에서 경험을 쌓고 있습니다.",
       "ReeLoom · FloodGuard · OrakGarak 등 팀 프로젝트 수행",
     ],
     logo: "/images/ssafy.png",

@@ -7,7 +7,7 @@ export const personalInfo = {
   heroTitle: "Frontend Developer",
 
   shortDescription:
-    "React와 Vue.js를 활용한 컴포넌트 기반 개발과 사용자 경험 최적화에 집중하는 프론트엔드 개발자입니다.",
+    "React, Vue.js, React Native를 활용한 웹/모바일 개발과 사용자 경험 최적화에 집중하는 프론트엔드 개발자입니다.",
 
   vision:
     "사용자가 직관적으로 사용할 수 있는 웹 인터페이스를 만들고, 지속적으로 성장하는 프론트엔드 개발자로 성장하고자 합니다.",
@@ -17,9 +17,13 @@ export const personalInfo = {
 조선대학교 수학과에서 논리적 사고력과 문제 해결력을 다졌고, SSAFY 13기에서 Vue.js와 React.js를 기반으로 한 웹 프론트엔드 개발을 배우고 있습니다.  
 특히 **FloodGuard** 프로젝트에서는 실시간 데이터 시각화와 WebSocket 통신을 활용한 대시보드 UI를 구현하며 프론트엔드 개발 역량을 쌓았습니다.
 
-또한 **OrakGarak** 프로젝트에서는 복잡한 프론트엔드 구조를 정리하고,  
+**OrakGarak** 프로젝트에서는 복잡한 프론트엔드 구조를 정리하고,  
 **컴포넌트 재사용성과 일관된 디자인 시스템 구축**을 통해 사용자 경험을 개선했습니다.  
 프로젝트의 UI/UX를 통일하고 성능을 최적화하며 프론트엔드 품질을 끌어올린 경험이 큰 성장의 계기가 되었습니다.
+
+최근에는 **ToGather** 프로젝트를 통해 React Native와 Expo를 활용한 모바일 앱 개발 경험을 쌓았습니다.  
+전체 앱 구조를 설계하고 핵심 화면들을 직접 구현하면서 웹과 모바일 환경의 차이를 경험하고,  
+각 플랫폼에 맞는 최적의 사용자 경험을 제공하는 방법을 배웠습니다.
 
 저는 **사용자 관점에서 생각하며 직관적인 인터페이스를 만드는 것**에 집중합니다.  
 프론트엔드의 매력은 "사용자에게 직접 가치를 전달할 수 있는 기술"이라 생각하며,  
@@ -35,9 +39,9 @@ export const personalInfo = {
 
   strengths: [
     {
-      title: "프론트엔드 설계 및 구현",
+      title: "웹/모바일 프론트엔드 개발",
       description:
-        "React, Vue.js 기반 SPA 개발 및 상태 관리·라우팅 구조 설계 경험",
+        "React, Vue.js 기반 SPA 개발과 React Native를 활용한 모바일 앱 개발 경험",
       icon: "💻",
     },
     {
@@ -47,10 +51,10 @@ export const personalInfo = {
       icon: "🎨",
     },
     {
-      title: "리더십과 협업 커뮤니케이션",
+      title: "상태 관리 및 성능 최적화",
       description:
-        "팀장으로서 프로젝트 일정·품질 관리 및 팀원 간 역할 조율 경험",
-      icon: "👥",
+        "Zustand, Pinia, TanStack Query를 활용한 효율적인 상태 관리와 렌더링 최적화",
+      icon: "⚡",
     },
     {
       title: "문제 해결과 분석적 사고",
@@ -60,10 +64,11 @@ export const personalInfo = {
   ],
 
   interests: [
-    "웹 성능 최적화",
+    "웹/모바일 성능 최적화",
     "사용자 경험(UX) 설계",
     "컴포넌트 아키텍처",
     "반응형 웹 디자인",
+    "크로스 플랫폼 개발",
     "접근성(A11y) 향상",
   ],
 
@@ -76,16 +81,16 @@ export const personalInfo = {
         icon: "⚡",
       },
       {
+        title: "모바일 개발 역량 강화",
+        description:
+          "React Native와 네이티브 모듈 연동, 플랫폼별 최적화 경험 쌓기",
+        icon: "📱",
+      },
+      {
         title: "성능 최적화 전문성 강화",
         description:
           "Core Web Vitals 개선, 번들 사이즈 최적화, 렌더링 성능 향상",
         icon: "💎",
-      },
-      {
-        title: "접근성 및 사용성 개선",
-        description:
-          "WCAG 가이드라인 준수, 크로스 브라우저 호환성, 모바일 최적화",
-        icon: "🎯",
       },
     ],
     longTerm: [
@@ -112,8 +117,10 @@ export const personalInfo = {
 
   keywords: [
     "React / Vue",
+    "React Native",
     "TypeScript",
     "Frontend Development",
+    "Mobile Development",
     "Performance Optimization",
     "User Experience",
     "Component Architecture",
