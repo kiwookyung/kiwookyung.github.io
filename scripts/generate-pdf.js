@@ -113,7 +113,7 @@ async function generatePDF() {
 
       // PDF 전용 페이지가 로드되었는지 확인
       try {
-        await page.waitForSelector(".pdf-page", {
+        await page.waitForSelector(".pdf-page-container", {
           timeout: 5000,
         });
       } catch (e) {

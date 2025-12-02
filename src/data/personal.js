@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "기우경",
-  title: "사용자 중심의 웹 인터페이스를 만드는 프론트엔드 개발자",
+  title: "사용자 중심의 인터랙션을 만드는 프론트엔드 개발자",
 
   // Hero Section
   heroSlogan: "정교한 인터랙션으로\n사용자 경험을 설계하는",
@@ -10,9 +10,9 @@ export const personalInfo = {
     "React, Vue.js, React Native를 활용한 웹/모바일 개발과 사용자 경험 최적화에 집중하는 프론트엔드 개발자입니다.",
 
   vision:
-    "사용자가 직관적으로 사용할 수 있는 웹 인터페이스를 만들고, 지속적으로 성장하는 프론트엔드 개발자로 성장하고자 합니다.",
+    "사용자가 직관적으로 사용할 수 있는 인터랙션을 만들고, 지속적으로 성장하는 프론트엔드 개발자로 성장하고자 합니다.",
 
-  longDescription: `안녕하세요! 저는 사용자 중심의 웹 인터페이스를 만드는 프론트엔드 개발자 **기우경**입니다.
+  longDescription: `안녕하세요! 저는 사용자 중심의 인터랙션을 만드는 프론트엔드 개발자 **기우경**입니다.
 
 조선대학교 수학과에서 논리적 사고력과 문제 해결력을 다졌고, SSAFY 13기에서 Vue.js와 React.js를 기반으로 한 웹 프론트엔드 개발을 배우고 있습니다.  
 특히 **FloodGuard** 프로젝트에서는 실시간 데이터 시각화와 WebSocket 통신을 활용한 대시보드 UI를 구현하며 프론트엔드 개발 역량을 쌓았습니다.
@@ -34,7 +34,6 @@ export const personalInfo = {
     github: "https://github.com/kiwookyung",
     resume: "/files/resume.pdf", // 이력서 파일 경로 (public/files/resume.pdf에 업로드 필요)
     phone: "010-3682-4354",
-    location: "광주광역시",
   },
 
   strengths: [

@@ -27,10 +27,10 @@ export const certifications = [
   {
     id: 4,
     type: "award",
-    name: "SSAFY 자율 프로젝트 2등",
+    name: "SSAFY 자율 프로젝트 우수상",
     issuer: "삼성 청년 SW 아카데미",
     date: "2025-11",
     description:
-      "React Native 기반 커플 AI 다이어리 앱 ‘ToGather’ 개발로 SSAFY 자율 프로젝트 평가에서 2등 달성. 전체 기획·UI 구성 및 핵심 기능 개발을 주도하며 높은 완성도로 인정받음.",
+      "React Native 기반 커플 AI 다이어리 앱 ‘ToGather’ 개발로 SSAFY 자율 프로젝트 평가에서 우수상 수여. 전체 기획·UI 구성 및 핵심 기능 개발을 주도하며 높은 완성도로 인정받음.",
   },
 ];
