@@ -24,7 +24,7 @@ export const career = [
     start: "2025-01",
     end: null,
     period: "2025.01 - 2025.12",
-    description: "SW 교육과정 및 프로젝트를 통해 실무 경험을 쌓고 있습니다.",
+    description: "SW 교육과정 및 프로젝트를 통해 실무 경험.",
     details: [
       "개발 과정에서의 프론트,백엔드,AI 등 다양한 분야에서 경험을 쌓고 있습니다.",
       "ReeLoom · FloodGuard · OrakGarak 등 팀 프로젝트 수행",
