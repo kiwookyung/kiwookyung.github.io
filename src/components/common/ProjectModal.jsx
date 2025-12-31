@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { X, Github, Calendar, Users, Award, AlertCircle, Play, Tag, AlertTriangle, CheckCircle2, ArrowRight, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, Github, Calendar, Users, Award, AlertCircle, Play, Tag, AlertTriangle, CheckCircle2, ArrowRight, Lightbulb, ChevronDown, ChevronUp, Film } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
@@ -172,6 +172,26 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 </div>
               </div>
             </div>
+
+            {/* Demo Video */}
+            {project.demoVideo && (
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Film size={20} className="text-primary-600" />
+                  영상 포트폴리오
+                </h4>
+                <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                  <video
+                    src={project.demoVideo}
+                    controls
+                    className="w-full max-h-96 bg-black"
+                    preload="metadata"
+                  >
+                    브라우저가 비디오 태그를 지원하지 않습니다.
+                  </video>
+                </div>
+              </div>
+            )}
 
             {/* Tech Stack */}
             <div className="mb-6">
@@ -375,7 +395,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   className="btn-theme-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-theme-primary-dark transition-colors duration-200 flex items-center space-x-2"
                 >
                   <Play size={20} />
-                  <span>데모 보기</span>
+                  <span>시연 영상</span>
                 </a>
               )}
             </div>

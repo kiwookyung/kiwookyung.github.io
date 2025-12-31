@@ -14,6 +14,12 @@ export default {
         // 실제 색상은 CSS Variables로 동적 관리
         "theme-text-primary": "var(--theme-text-primary)",
         "theme-text-secondary": "var(--theme-text-secondary)",
+        "theme-card": "var(--theme-card)",
+        "theme-card-subtle": "var(--theme-card-subtle)",
+        "theme-card-elevated": "var(--theme-card-elevated)",
+        "theme-primary": "var(--theme-primary)",
+        "theme-accent": "var(--theme-accent)",
+        "theme-background": "var(--theme-background)",
       },
       animation: {
         blob: "blob 7s infinite",

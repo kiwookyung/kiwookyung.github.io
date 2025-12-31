@@ -121,7 +121,8 @@ const ProjectsPage = () => {
             {/* Home */}
             <Link
               to="/"
-              className="group bg-theme-card-subtle rounded-2xl p-8 border-2 border-theme-accent hover:border-theme-primary transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md"
+              className="group rounded-2xl p-8 border-2 border-theme-accent hover:border-theme-primary transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md"
+              style={{ backgroundColor: '#DCD5AF' }}
               onClick={() => window.scrollTo(0, 0)}
             >
               <div className="text-center">
@@ -143,7 +144,8 @@ const ProjectsPage = () => {
             {/* About */}
             <Link
               to="/about"
-              className="group bg-theme-card-subtle rounded-2xl p-8 border-2 border-theme-accent hover:border-theme-primary transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md"
+              className="group rounded-2xl p-8 border-2 border-theme-accent hover:border-theme-primary transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md"
+              style={{ backgroundColor: '#DCD5AF' }}
               onClick={() => window.scrollTo(0, 0)}
             >
               <div className="text-center">
@@ -165,7 +167,8 @@ const ProjectsPage = () => {
             {/* Extras */}
             <Link
               to="/extras"
-              className="group bg-theme-card-subtle rounded-2xl p-8 border-2 border-theme-accent hover:border-theme-primary transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md"
+              className="group rounded-2xl p-8 border-2 border-theme-accent hover:border-theme-primary transition-all duration-300 hover:shadow-lg hover:scale-105 shadow-md"
+              style={{ backgroundColor: '#DCD5AF' }}
               onClick={() => window.scrollTo(0, 0)}
             >
               <div className="text-center">

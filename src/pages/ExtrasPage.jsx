@@ -178,8 +178,9 @@ return (
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
                 download={link.download}
-                className={`group ${link.bgColor} rounded-2xl p-8 shadow-xl border border-theme-accent hover:border-theme-primary hover:shadow-2xl hover:scale-105 transition-all duration-500`}
+                className="group rounded-2xl p-8 shadow-xl border border-theme-accent hover:border-theme-primary hover:shadow-2xl hover:scale-105 transition-all duration-500"
                 style={{
+                  backgroundColor: '#DCD5AF',
                   transitionDelay: `${index * 150}ms`,
                 }}
               >

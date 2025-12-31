@@ -1,4 +1,4 @@
-import { Eye, Github } from 'lucide-react';
+import { Eye, Github, Film } from 'lucide-react';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import ThemeSection from '../common/ThemeSection';
 
@@ -50,6 +50,13 @@ const ProjectsSection = ({ projects, onProjectClick }) => {
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                   </>
+                )}
+                {/* 영상 포트폴리오 배지 */}
+                {project.demoVideo && (
+                  <div className="absolute top-3 right-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg">
+                    <Film size={12} />
+                    <span>영상</span>
+                  </div>
                 )}
               </div>
 

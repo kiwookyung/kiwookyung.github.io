@@ -1,4 +1,4 @@
-import { Eye, Github, Award } from 'lucide-react';
+import { Eye, Github, Award, Film } from 'lucide-react';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import ThemeSection from '../common/ThemeSection';
 import { Link } from 'react-router-dom';
@@ -70,7 +70,13 @@ const FeaturedProjectsSection = ({ projects, onProjectClick }) => {
                     </div>
                   </>
                 )}
-
+                {/* 영상 포트폴리오 배지 */}
+                {project.demoVideo && (
+                  <div className="absolute top-3 right-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white px-3 py-1.5 rounded-full text-sm font-semibold flex items-center gap-1.5 shadow-lg z-10">
+                    <Film size={14} />
+                    <span>영상 포트폴리오</span>
+                  </div>
+                )}
               </div>
 
               {/* Project Info */}

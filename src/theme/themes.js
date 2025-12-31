@@ -13,12 +13,12 @@ export const themes = {
       primaryDark: "#1A8A06", // 가독성 개선을 위한 어두운 그린
       text: {
         primary: "#1A1A1A", // 거의 검정
-        secondary: "#555555", // 서브텍스트 회색
+        secondary: "#3D3D3D", // 서브텍스트 - 더 진한 회색으로 가독성 향상
       },
       accent: "#4CAF50", // 밝은 그린 액센트
-      card: "#FFFFFF", // 순백색 카드
-      cardElevated: "#FFFFFF", // 강조된 카드
-      cardSubtle: "#FFFFFF", // 카드 - 흰색으로 대비 향상
+      card: "#FFFEF7", // 아이보리 카드 - 배경과 대비
+      cardElevated: "#FFFFFF", // 강조된 카드 - 순백색
+      cardSubtle: "#FFFEF7", // 은은한 아이보리 카드
     },
     mood: "신선하고, 모던하고, 깔끔한",
   },
