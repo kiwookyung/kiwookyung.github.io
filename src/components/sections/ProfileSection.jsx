@@ -1,9 +1,11 @@
-import { MapPin, Mail, Phone, Github, FileText } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Mail, Phone, Github, FileText, Play, X } from 'lucide-react';
 import { personalInfo } from '../../data/personal';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 const ProfileSection = () => {
   const [ref, isVisible] = useIntersectionObserver();
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   // 마크다운 스타일 강조 텍스트 파싱 함수
   const parseMarkdownText = (text) => {
@@ -101,6 +103,15 @@ const ProfileSection = () => {
                     <FileText size={24} />
                   </a>
                 </div>
+
+                {/* 인트로 영상 버튼 */}
+                <button
+                  onClick={() => setShowVideoModal(true)}
+                  className="w-full mt-4 flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  <Play size={18} />
+                  <span>인트로 영상 보기</span>
+                </button>
               </div>
             </div>
 
@@ -170,6 +181,37 @@ const ProfileSection = () => {
           </div>
         </div>
       </div>
+
+      {/* 인트로 영상 모달 */}
+      {showVideoModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setShowVideoModal(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl mx-4 bg-black rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* 닫기 버튼 */}
+            <button
+              onClick={() => setShowVideoModal(false)}
+              className="absolute top-4 right-4 z-10 p-2 bg-white/20 hover:bg-white/30 rounded-full text-white transition-all duration-300 hover:scale-110"
+              aria-label="닫기"
+            >
+              <X size={24} />
+            </button>
+
+            {/* 영상 */}
+            <video
+              autoPlay
+              controls
+              className="w-full h-auto"
+            >
+              <source src="/videos/introduce_portfolio.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

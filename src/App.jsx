@@ -8,9 +8,14 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ExtrasPage from './pages/ExtrasPage';
 import PdfPage from './pages/PdfPage';
+import IntroVideo from './components/common/IntroVideo';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => {
+    // 세션에서 이미 인트로를 봤는지 확인
+    return sessionStorage.getItem('introWatched') !== 'true';
+  });
 
   useEffect(() => {
     // Simulate loading time
@@ -31,6 +36,11 @@ function App() {
         </div>
       </div>
     );
+  }
+
+  // 인트로 영상 표시
+  if (showIntro) {
+    return <IntroVideo onComplete={() => setShowIntro(false)} />;
   }
 
   return (
