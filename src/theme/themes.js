@@ -69,10 +69,10 @@ export const themes = {
 export const sectionThemes = {
   hero: "fresh", // Hero 섹션: 신선한 크림 & 그린
   about: "fresh", // About 섹션: 신선한 크림 & 그린
-  projects: "warm", // Projects 섹션: 따뜻한 베이지 & 오렌지
-  featured: "warm", // Featured 섹션: 따뜻한 베이지 & 오렌지
+  projects: "fresh", // Projects 섹션: 신선한 크림 & 그린
+  featured: "fresh", // Featured 섹션: 신선한 크림 & 그린
   skills: "fresh", // Skills 섹션: 신선한 크림 & 그린
-  extras: "warm", // Extras 섹션: 따뜻한 베이지 & 오렌지
+  extras: "fresh", // Extras 섹션: 신선한 크림 & 그린
   contact: "fresh", // Contact 섹션: 신선한 크림 & 그린
 };
 
