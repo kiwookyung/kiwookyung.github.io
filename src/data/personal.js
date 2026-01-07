@@ -7,7 +7,7 @@ export const personalInfo = {
   heroTitle: "Frontend Creative Engineer",
 
   shortDescription:
-  "React, Vue, React Native를 기반으로 웹·모바일 서비스를 구현하며, AI 도구를 활용해 기획과 디자인, 개발을 빠르게 연결하는 프론트엔드 크리에이터입니다.",
+  "웹·모바일 서비스를 구현하며, AI 도구를 활용해 기획과 디자인, 개발을 빠르게 연결하는 프론트엔드 크리에이터입니다.",
 
   vision:
     "사용자가 직관적으로 사용할 수 있는 인터랙션을 만들고, 지속적으로 성장하는 개발자로 성장하고자 합니다.",
@@ -34,13 +34,13 @@ export const personalInfo = {
   profile: {
     email: "dnrud4354@gmail.com",
     github: "https://github.com/kiwookyung",
-    resume: "/files/resume.pdf", // 이력서 파일 경로 (public/files/resume.pdf에 업로드 필요)
+    resume: "/pdfs/Portfolio.pdf", // build-pdf 명령어로 생성되는 PDF 파일
     phone: "010-3682-4354",
   },
 
   strengths: [
     {
-      title: "웹/모바일 프론트엔드 개발",
+      title: "프론트엔드 개발",
       description:
         "React, Vue.js 기반 SPA 개발과 React Native를 활용한 모바일 앱 개발 경험",
       icon: "💻",

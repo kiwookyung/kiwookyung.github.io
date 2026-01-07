@@ -152,17 +152,29 @@ return (
       </div>
 
       {/* Links Section */}
-      <section className="py-20 bg-theme-card-subtle">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden">
+        {/* 배경 이미지 */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("/images/design/teemu.jpg")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* 어두운 오버레이 (가독성 확보) */}
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={linksRef}
             className={`text-center mb-16 transition-all duration-1000 ${isLinksVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-theme-primary mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 drop-shadow-lg">
               Connect With Me
             </h2>
-            <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
               다양한 플랫폼에서 저와 소통해보세요
             </p>
           </div>

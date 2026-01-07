@@ -9,7 +9,7 @@ import { extname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const distPath = join(__dirname, "..", "dist");
-const pdfOutputPath = join(__dirname, "..", "pdfs");
+const pdfOutputPath = join(__dirname, "..", "public", "pdfs");
 
 // PDF 출력 디렉토리 생성 함수
 async function ensurePdfDirectory() {

@@ -87,7 +87,7 @@ const projectsArray = [
         reason: "경량 오픈소스 라이브러리로 지도 시각화 성능 최적화",
       },
     ],
-    image: "/images/floodguard.png",
+    image: "/images/floodguard/floodguard.png",
     screenshots: [
       "/images/floodguard/image_13.png",
       "/images/floodguard/image_14.png",
@@ -153,7 +153,7 @@ const projectsArray = [
         reason: "서버 상태 관리와 자동 캐싱으로 API 호출 최적화 및 UX 개선",
       },
     ],
-    image: "/images/orakgarak.png",
+    image: "/images/orakgarak/orakgarak.png",
     screenshots: [
       "/images/orakgarak/recording.png",
       "/images/orakgarak/pitchtest.png",
@@ -229,7 +229,7 @@ const projectsArray = [
         reason: "스크롤 이벤트 대신 성능 최적화된 스크롤 애니메이션 구현",
       },
     ],
-    image: null, // TODO: 프로젝트 완성 후 스크린샷 추가 예정
+    image: "/images/portfolio/portfolio.png", // TODO: 프로젝트 완성 후 스크린샷 추가 예정
     github: "https://github.com/kiwookyung/Ki_Portfolio",
     period: "2025.09 - 2025.10",
     teamSize: "1명 (개인 프로젝트)",

@@ -106,13 +106,25 @@ const ProjectsPage = () => {
       <ProjectsSection projects={filteredProjects} onProjectClick={openModal} />
 
       {/* Navigation Section */}
-      <div className="bg-theme-card-subtle py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative py-16 overflow-hidden">
+        {/* 배경 이미지 */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("/images/design/intricate.jpg")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* 어두운 오버레이 */}
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-black text-theme-primary mb-4">
+            <h2 className="text-3xl font-display font-black text-white mb-4 drop-shadow-lg">
               더 알아보기
             </h2>
-            <p className="text-theme-secondary font-body text-lg">
+            <p className="text-white/90 font-body text-lg drop-shadow-md">
               다른 섹션에서 더 많은 정보를 확인해보세요
             </p>
           </div>

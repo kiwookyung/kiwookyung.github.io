@@ -1917,7 +1917,7 @@ const PdfPage = () => {
             </div>
             <div className="pdf-page-4-thumbnail">
               <img
-                src="/images/floodguard.png"
+                src="/images/floodguard/floodguard.png"
                 alt="FloodGuard Logo"
                 onError={(e) => {
                   e.target.style.display = "none";
@@ -2196,7 +2196,7 @@ const PdfPage = () => {
             </div>
             <div className="pdf-page-4-thumbnail">
               <img
-                src="/images/orakgarak.png"
+                src="/images/orakgarak/orakgarak.png"
                 alt="OrakGarak Logo"
                 onError={(e) => {
                   e.target.style.display = "none";
