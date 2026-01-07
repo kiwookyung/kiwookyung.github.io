@@ -1,0 +1,1 @@
+import{r as t}from"./vendor-ChciBgmW.js";const l=(s={})=>{const[c,u]=t.useState(!1),[r,i]=t.useState(!1),n=t.useRef(null);return t.useEffect(()=>{const e=n.current;if(!e)return;const o=new IntersectionObserver(([a])=>{a.isIntersecting&&!r&&(u(!0),i(!0))},{threshold:.1,rootMargin:"0px 0px -50px 0px",...s});return o.observe(e),()=>{e&&o.unobserve(e)}},[r,s]),[n,c]};export{l as u};
