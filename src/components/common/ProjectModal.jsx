@@ -67,6 +67,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -342,6 +343,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                     <img
                                       src={img}
                                       alt={`${parsed.title} 이미지 ${imgIndex + 1}`}
+                                      loading="lazy"
                                       className="w-full h-32 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
                                       onClick={() => window.open(img, '_blank')}
                                     />

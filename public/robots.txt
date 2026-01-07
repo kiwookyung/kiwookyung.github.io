@@ -1,0 +1,8 @@
+# Robots.txt for kiwookyung.github.io
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kiwookyung.github.io/sitemap.xml
+
