@@ -81,7 +81,7 @@ AIoT 기반 침수 예방 시스템의 웹 대시보드입니다. React와 MUI�
 
 **기우경** - Frontend Developer
 
-- 📧 **Email**: kiwookyung@naver.com
+- 📧 **Email**: dnrud4354@naver.com
 - 💻 **GitHub**: [@kiwookyung](https://github.com/kiwookyung)
 - 💼 **LinkedIn**: [기우경](https://linkedin.com/in/kiwookyung)
 - 📝 **Blog**: [네이버 블로그](https://blog.naver.com/kiwookyung)
