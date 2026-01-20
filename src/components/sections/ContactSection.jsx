@@ -103,11 +103,11 @@ const ContactSection = () => {
   ];
 
   const desiredProjects = [
-    "AIoT 기반 실시간 대시보드 및 제어 시스템",
+    "AI 기반 UX 자동 개선 서비스",
     "React/TypeScript 기반 고성능 웹 애플리케이션",
-    "AI API 연동 및 음성/이미지 처리 웹 서비스",
+    "콘텐츠 + AI 결합 서비스",
     "대규모 팀 프로젝트의 프론트엔드 아키텍처 설계",
-    "WebSocket, MQTT 등 실시간 통신 기반 서비스",
+    "Design System 프로젝트",
     "성능 최적화 및 사용자 경험 개선 프로젝트"
   ];
 
