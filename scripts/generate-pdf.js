@@ -64,6 +64,20 @@ function createStaticServer(rootPath, port = 3000) {
   });
 }
 
+// PDF 버전 정의
+const pdfVersions = [
+  {
+    role: "FE",
+    filename: "Portfolio_KiWooKyung_FE.pdf",
+    description: "Frontend Developer 버전",
+  },
+  {
+    role: "PD",
+    filename: "Portfolio_KiWooKyung_UIUX_PD.pdf",
+    description: "서비스 UI/UX 기획자 버전",
+  },
+];
+
 async function generatePDF() {
   // PDF 출력 디렉토리 생성
   await ensurePdfDirectory();
@@ -96,53 +110,56 @@ async function generatePDF() {
       deviceScaleFactor: 2,
     });
 
-    // PDF 전용 페이지 생성
+    // 각 역할별 PDF 생성
     console.log("📄 PDF 생성 중...\n");
 
-    try {
-      console.log(`  → PDF 전용 페이지 처리 중...`);
-
-      const url = `http://localhost:3000/portfolio/pdf`;
-      await page.goto(url, {
-        waitUntil: "networkidle0",
-        timeout: 30000,
-      });
-
-      // 페이지가 완전히 로드될 때까지 대기 (React 앱 렌더링 대기)
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-
-      // PDF 전용 페이지가 로드되었는지 확인
+    for (const version of pdfVersions) {
       try {
-        await page.waitForSelector(".pdf-page-container", {
-          timeout: 5000,
+        console.log(`  → ${version.description} 생성 중...`);
+
+        const url = `http://localhost:3000/portfolio/pdf?role=${version.role}`;
+        await page.goto(url, {
+          waitUntil: "networkidle0",
+          timeout: 30000,
         });
-      } catch (e) {
-        console.warn(
-          "  ⚠ PDF 페이지 선택자를 찾을 수 없습니다. 계속 진행합니다..."
-        );
+
+        // 페이지가 완전히 로드될 때까지 대기 (React 앱 렌더링 대기)
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+
+        // PDF 전용 페이지가 로드되었는지 확인
+        try {
+          await page.waitForSelector(".pdf-page-container", {
+            timeout: 5000,
+          });
+        } catch (e) {
+          console.warn(
+            "  ⚠ PDF 페이지 선택자를 찾을 수 없습니다. 계속 진행합니다..."
+          );
+        }
+
+        // PDF 생성 옵션
+        const pdfOptions = {
+          path: join(pdfOutputPath, version.filename),
+          format: "A4",
+          printBackground: true,
+          margin: {
+            top: "15mm",
+            right: "15mm",
+            bottom: "15mm",
+            left: "15mm",
+          },
+        };
+
+        await page.pdf(pdfOptions);
+        console.log(`  ✓ ${version.filename} 생성 완료`);
+      } catch (error) {
+        console.error(`  ✗ ${version.filename} 생성 실패:`, error.message);
       }
-
-      // PDF 생성 옵션
-      const pdfOptions = {
-        path: join(pdfOutputPath, `Portfolio.pdf`),
-        format: "A4",
-        printBackground: true,
-        margin: {
-          top: "15mm",
-          right: "15mm",
-          bottom: "15mm",
-          left: "15mm",
-        },
-      };
-
-      await page.pdf(pdfOptions);
-      console.log(`  ✓ Portfolio.pdf 생성 완료\n`);
-    } catch (error) {
-      console.error(`  ✗ PDF 생성 실패:`, error.message);
     }
 
-    console.log("✅ 모든 PDF 생성이 완료되었습니다!");
+    console.log("\n✅ 모든 PDF 생성이 완료되었습니다!");
     console.log(`📁 출력 위치: ${pdfOutputPath}`);
+    console.log(`   - ${pdfVersions.map((v) => v.filename).join("\n   - ")}`);
   } catch (error) {
     console.error("❌ PDF 생성 중 오류 발생:", error);
   } finally {

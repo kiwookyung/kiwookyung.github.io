@@ -34,7 +34,7 @@ export const personalInfo = {
   profile: {
     email: "dnrud4354@gmail.com",
     github: "https://github.com/kiwookyung",
-    resume: "/pdfs/Portfolio.pdf", // build-pdf 명령어로 생성되는 PDF 파일
+    resume: "/pdfs/Portfolio_KiWooKyung_FE.pdf", // build-pdf 명령어로 생성되는 PDF 파일 (FE 버전)
     phone: "010-3682-4354",
   },
 

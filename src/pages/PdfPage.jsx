@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { personalInfo } from "../data/personal";
 import { career } from "../data/career";
 import { certifications } from "../data/certificates";
@@ -5,6 +6,35 @@ import { projects } from "../data/projects";
 import { Mail, Phone, Github } from "lucide-react";
 
 const PdfPage = () => {
+  // URL 쿼리 파라미터에서 role 받기 (기본값: FE)
+  const [searchParams] = useSearchParams();
+  const role = searchParams.get("role") || "FE"; // "FE" | "PD"
+
+  // 역할별 텍스트 정의
+  const roleTexts = {
+    FE: {
+      title: "{currentRole.title}",
+      subtitle: "웹·모바일 서비스의 안정적인 사용자 경험을 구현하는 프론트엔드 개발자",
+      qaQuestion: "프론트엔드 개발에서 가장 중요하게 생각하는 점은 무엇인가요?",
+      projectRole: {
+        togather: "프론트엔드 개발 (모바일 앱 전체 구조 설계, Expo Router 기반 탭 구조 설계, 핵심 화면 90% 이상 구현)",
+        floodguard: "프론트엔드 개발 (React 대시보드 구현, 실시간 데이터 시각화, UI/UX 설계)",
+        orakgarak: "프론트엔드 개발 (React/TypeScript 기반 UI 구현, 오디오 처리, 인터랙티브 UX 설계)",
+      },
+    },
+    PD: {
+      title: "기우경 | 서비스 UI/UX 기획자 (PD)",
+      subtitle: "개발 이해를 바탕으로 사용자 경험을 구조로 설계하는 UI/UX 기획자",
+      qaQuestion: "서비스 UI/UX를 설계할 때 가장 중요하게 생각하는 점은?",
+      projectRole: {
+        togather: "서비스 UI/UX 설계 및 프론트엔드 구현 (모바일 앱 전체 구조 설계, 사용자 여정 기반 화면 설계)",
+        floodguard: "서비스 UI/UX 설계 및 프론트엔드 구현 (대시보드 정보 구조 설계, 실시간 데이터 시각화 UX)",
+        orakgarak: "서비스 UI/UX 설계 및 프론트엔드 구현 (사용자 흐름 설계, 인터랙티브 UX 기획)",
+      },
+    },
+  };
+
+  const currentRole = roleTexts[role] || roleTexts.FE;
   // 프로젝트 찾기
   const togatherProject = projects.find((p) => p.id === 5);
   const floodGuardProject = projects.find((p) => p.id === 2);
@@ -17,22 +47,22 @@ const PdfPage = () => {
     return 3;
   };
 
-  // Q&A 내용
+  // Q&A 내용 (두 번째 질문은 역할에 따라 분기)
   const qaContent = [
     {
       question: "사용자가 계속 쓰고 싶어지는 서비스를 어떻게 만들 수 있을까?",
       answer:
-        "저는 ‘사용자가 어떤 상황에서 이 화면을 쓰게 되는지’를 먼저 정의하고, 그 흐름을 끊지 않는 것을 가장 중요하게 생각합니다. FloodGuard에서는 센서 데이터·지도·차트를 한 화면에서 확인할 수 있도록 배치해 사용자가 반복적으로 모니터링하도록 만들었고, ToGather에서는 “홈 → 다이어리 작성 → 피드 타임라인” 흐름을 설계해 기록과 회고가 자연스럽게 이어지도록 했습니다. 이런 경험을 바탕으로, 화면 배치와 인터랙션을 설계할 때 항상 사용자 여정과 반복 사용 동기를 함께 고민하고 있습니다."
+        "저는 '사용자가 어떤 상황에서 이 화면을 쓰게 되는지'를 먼저 정의하고, 그 흐름을 끊지 않는 것을 가장 중요하게 생각합니다. FloodGuard에서는 센서 데이터·지도·차트를 한 화면에서 확인할 수 있도록 배치해 사용자가 반복적으로 모니터링하도록 만들었고, ToGather에서는 '홈 → 다이어리 작성 → 피드 타임라인' 흐름을 설계해 기록과 회고가 자연스럽게 이어지도록 했습니다. 이런 경험을 바탕으로, 화면 배치와 인터랙션을 설계할 때 항상 사용자 여정과 반복 사용 동기를 함께 고민하고 있습니다."
     },
     {
-      question: "프론트엔드 개발에서 가장 중요하게 생각하는 점은 무엇인가요?",
+      question: currentRole.qaQuestion,
       answer:
-        "저는 ‘일관된 UI와 예측 가능한 상태 관리’가 좋은 사용자 경험을 만든다고 생각합니다. OrakGarak에서는 페이지마다 디자인과 상태 관리 방식이 제각각이어서 유지보수와 협업에 어려움이 있었는데, 공통 컴포넌트와 테마를 정리하고 상태를 도메인별로 분리하면서 화면 전환과 동작이 한눈에 이해되도록 개선했습니다. 이 과정에서 Zustand, Pinia, TanStack Query를 각각 로컬 상태·글로벌 상태·서버 상태에 맞게 역할을 나눠 사용해, 코드 구조와 사용자 경험의 일관성을 함께 가져가고자 했습니다."
+        "저는 '일관된 UI와 예측 가능한 상태 관리'가 좋은 사용자 경험을 만든다고 생각합니다. OrakGarak에서는 페이지마다 디자인과 상태 관리 방식이 제각각이어서 유지보수와 협업에 어려움이 있었는데, 공통 컴포넌트와 테마를 정리하고 상태를 도메인별로 분리하면서 화면 전환과 동작이 한눈에 이해되도록 개선했습니다. 이 과정에서 Zustand, Pinia, TanStack Query를 각각 로컬 상태·글로벌 상태·서버 상태에 맞게 역할을 나눠 사용해, 코드 구조와 사용자 경험의 일관성을 함께 가져가고자 했습니다."
     },
     {
-      question: "향후 어떤 프론트엔드 개발자로 성장하고 싶나요?",
+      question: "향후 어떤 사람으로 성장하고 싶나요?",
       answer:
-        "웹과 모바일을 모두 이해하는 프론트엔드 아키텍트가 되는 것이 목표입니다. FloodGuard에서는 실시간 대시보드와 데이터 시각화를, ToGather에서는 모바일 네비게이션 구조와 감성적인 UX를 설계했습니다. 앞으로는 성능 최적화와 접근성, 컴포넌트 아키텍처에 더 깊이 투자하여, 다양한 서비스에서 안정적인 사용자 경험을 제공하는 개발자로 성장하고자 합니다.",
+        "웹과 모바일을 모두 이해하는 프론트엔드 아키텍트가 되는 것이 목표입니다. FloodGuard에서는 실시간 대시보드와 데이터 시각화를, ToGather에서는 모바일 네비게이션 구조와 감성적인 UX를 설계했습니다. 앞으로는 성능 최적화와 접근성, 컴포넌트 아키텍처에 더 깊이 투자하여, 다양한 서비스에서 안정적인 사용자 경험을 제공하는 사람으로 성장하고자 합니다.",
     },
   ];
 
@@ -1274,9 +1304,9 @@ const PdfPage = () => {
           <div className="pdf-header">
             <div className="pdf-header-left">
               <div className="pdf-name">
-                기우경 | Frontend Developer
+                {currentRole.title}
               </div>
-              <div className="pdf-slogan">{personalInfo.title}</div>
+              <div className="pdf-slogan">{currentRole.subtitle}</div>
             </div>
             <div className="pdf-contact-box">
               <div className="pdf-contact-title">CONTACT</div>
@@ -1367,7 +1397,7 @@ const PdfPage = () => {
           <div className="pdf-page-2-header">
             <div className="pdf-page-2-header-left">
               <div className="pdf-page-2-name">
-                기우경 | Frontend Developer
+                {currentRole.title}
               </div>
             </div>
           </div>
@@ -1438,7 +1468,7 @@ const PdfPage = () => {
           <div className="pdf-page-2-header">
             <div className="pdf-page-2-header-left">
               <div className="pdf-page-2-name">
-                기우경 | Frontend Developer
+                {currentRole.title}
               </div>
             </div>
           </div>
@@ -1559,7 +1589,7 @@ const PdfPage = () => {
           {/* 헤더 (첫 페이지) */}
           <div className="pdf-page-4-header">
             <div className="pdf-page-4-header-left">
-              기우경 | Frontend Developer
+              {currentRole.title}
             </div>
             <div className="pdf-page-4-header-center">
               <div className="pdf-page-4-project-name">ToGather</div>
@@ -1598,8 +1628,7 @@ const PdfPage = () => {
               <div>
                 <span className="pdf-page-4-info-label">역할:</span>
                 <span className="pdf-page-4-info-value">
-                  프론트엔드 개발 (모바일 앱 전체 구조 설계, Expo Router 기반
-                  탭 구조 설계, 핵심 화면 90% 이상 구현)
+                  {currentRole.projectRole.togather}
                 </span>
               </div>
             </div>
@@ -1775,7 +1804,7 @@ const PdfPage = () => {
           <div className="pdf-page-4-header-simple">
             <div className="pdf-page-4-header-simple-left">
               <div className="pdf-page-4-name">
-                기우경 | Frontend Developer
+                {currentRole.title}
               </div>
             </div>
             <div className="pdf-page-4-header-simple-right">
@@ -1907,7 +1936,7 @@ const PdfPage = () => {
           {/* 헤더 (첫 페이지) */}
           <div className="pdf-page-4-header">
             <div className="pdf-page-4-header-left">
-              기우경 | Frontend Developer
+              {currentRole.title}
             </div>
             <div className="pdf-page-4-header-center">
               <div className="pdf-page-4-project-name">FloodGuard</div>
@@ -1946,7 +1975,7 @@ const PdfPage = () => {
               <div>
                 <span className="pdf-page-4-info-label">역할:</span>
                 <span className="pdf-page-4-info-value">
-                  {floodGuardProject?.role || "프론트엔드 개발 (React 대시보드 구현, 실시간 데이터 시각화, UI/UX 설계)"}
+                  {currentRole.projectRole.floodguard}
                 </span>
               </div>
             </div>
@@ -2075,7 +2104,7 @@ const PdfPage = () => {
           <div className="pdf-page-4-header-simple">
             <div className="pdf-page-4-header-simple-left">
               <div className="pdf-page-4-name">
-                기우경 | Frontend Developer
+                {currentRole.title}
               </div>
             </div>
             <div className="pdf-page-4-header-simple-right">
@@ -2186,7 +2215,7 @@ const PdfPage = () => {
           {/* 헤더 (첫 페이지) */}
           <div className="pdf-page-4-header">
             <div className="pdf-page-4-header-left">
-              기우경 | Frontend Developer
+              {currentRole.title}
             </div>
             <div className="pdf-page-4-header-center">
               <div className="pdf-page-4-project-name">OrakGarak</div>
@@ -2225,7 +2254,7 @@ const PdfPage = () => {
               <div>
                 <span className="pdf-page-4-info-label">역할:</span>
                 <span className="pdf-page-4-info-value">
-                  {orakGarakProject?.role || "프론트엔드 개발 (React/TypeScript 기반 UI 구현, 오디오 처리, 인터랙티브 UX 설계)"}
+                  {currentRole.projectRole.orakgarak}
                 </span>
               </div>
             </div>
@@ -2394,7 +2423,7 @@ const PdfPage = () => {
           <div className="pdf-page-4-header-simple">
             <div className="pdf-page-4-header-simple-left">
               <div className="pdf-page-4-name">
-                기우경 | Frontend Developer
+                {currentRole.title}
               </div>
             </div>
             <div className="pdf-page-4-header-simple-right">
